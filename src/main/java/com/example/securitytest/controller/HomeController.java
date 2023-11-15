@@ -40,6 +40,11 @@ public class HomeController {
         return "login";
     }
 
+    @GetMapping("/loginpage")
+    public String loginpage(){
+        return "oldlogin";
+    }
+
     @GetMapping("/hello")
     public String hello(){
         return "hello";
