@@ -13,17 +13,22 @@ import java.util.Collections;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name ="Member")
+@Table
 public class member implements UserDetails {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pk_id;
 
-    private String member_id;
+
+    private String memberId;
+
 
     private String password;
 
+
     private String role;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -32,7 +37,7 @@ public class member implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.member_id;
+        return this.memberId;
     }
 
     @Override

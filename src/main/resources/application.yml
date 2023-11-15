@@ -2,6 +2,11 @@
 server:
   port: 8082
 
+#logging:
+#  level:
+#    root: debug
+
+# database 연동 설정
 spring:
 #  security:
 #    user:
@@ -10,31 +15,18 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    #    각자 PC에 만들어놓은 Database이름을 써야 합니다.
     url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    #    mysql에 생성한 사용자 계정 정보를 써야 합니다.
     username: wook
     password: 1234
+  thymeleaf:
+    cache: false
 
-
-#logging:
-#  level:
-#    root: debug
-
-## database ?? ??
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    #    ?? PC? ????? Database??? ?? ???.
-#    url: jdbc:mysql://localhost:3306/db_wook?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    #    mysql? ??? ??? ?? ??? ?? ???.
-#    username: wook
-#    password: 1234
-#  thymeleaf:
-#    cache: false
-#
-#  # spring data jpa ??
-#  jpa:
-#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    open-in-view: false
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: validate
+  # spring data jpa 설정
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
