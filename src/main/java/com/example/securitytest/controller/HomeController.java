@@ -3,10 +3,13 @@ package com.example.securitytest.controller;
 import com.example.securitytest.entity.member;
 import com.example.securitytest.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,7 +19,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        return "home";
+        return "index";
     }
 
     @RequestMapping("/home")
@@ -24,29 +27,14 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/signup")
-    public String signupF(){
-        return "signup";
-    }
-    @PostMapping("/signup")
-    public String signupP(member member){
-        System.out.println(member);
-        memberService.signup(member);
-
-        return "home";
-    }
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
-    @GetMapping("/loginpage")
-    public String loginpage(){
-        return "oldlogin";
-    }
-
     @GetMapping("/hello")
-    public String hello(){
+    public String hello(Principal principal){
+        System.out.println(principal);
         return "hello";
+    }
+    @GetMapping("/index")
+    public String index(){
+
+        return "index";
     }
 }

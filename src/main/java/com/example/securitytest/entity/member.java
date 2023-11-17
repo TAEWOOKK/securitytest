@@ -19,12 +19,13 @@ public class member implements UserDetails {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pk_id;
 
-
     private String memberId;
-
 
     private String password;
 
+    private String name;
+
+    private String email;
 
     private String role;
 
