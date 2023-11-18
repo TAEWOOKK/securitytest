@@ -29,12 +29,12 @@ public class WebSecurityConfig {
         http.csrf().disable()
                 .cors().disable()
                 .authorizeHttpRequests(request -> request
-                        .antMatchers("/","/home","/signup","/assets/**","/vendors/**").permitAll()
+                        .antMatchers("/","/home","/signup","/assets/**","/vendors/**","/").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/index", true)
+                        .defaultSuccessUrl("/", true)
                         .permitAll()
                 )
                 .logout(withDefaults()).logout().logoutSuccessUrl("/");
