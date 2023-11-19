@@ -29,7 +29,7 @@ public class WebSecurityConfig {
         http.csrf().disable()
                 .cors().disable()
                 .authorizeHttpRequests(request -> request
-                        .antMatchers("/","/home","/signup","/assets/**","/vendors/**","/").permitAll()
+                        .antMatchers("/public/**","/assets/**","/vendors/**","/").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login

@@ -14,23 +14,23 @@ public class MemberController {
     private final MemberService memberService;
     @GetMapping("/signup")
     public String signupF(){
-        return "signup";
+        return "/public/signup";
     }
     @PostMapping("/signup")
     public String signupP(member member){
 
         memberService.signup(member);
 
-        return "login";
+        return "/public/login";
     }
     @GetMapping("/login")
     public String login(){
-        return "login";
+        return "/public/login";
     }
 
-    @GetMapping("/loginpage")
-    public String loginpage(){
-        return "oldlogin";
+    @GetMapping("/oldlogin")
+    public String oldlogin(){
+        return "/public/oldlogin";
     }
 
 }
