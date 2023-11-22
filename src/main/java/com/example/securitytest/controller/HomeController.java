@@ -30,4 +30,15 @@ public class HomeController {
         System.out.println(principal);
         return "/user/hello";
     }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "/admin/admintest";
+    }
+
+    @GetMapping("/403error")
+    public String error403(){
+
+        return "/403error";
+    }
 }

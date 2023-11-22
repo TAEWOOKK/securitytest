@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MemberController {
 
     private final MemberService memberService;
-    @GetMapping("/signup")
+    @GetMapping("/public/signup")
     public String signupF(){
         return "/public/signup";
     }

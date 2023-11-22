@@ -30,13 +30,24 @@ public class WebSecurityConfig {
                 .cors().disable()
                 .authorizeHttpRequests(request -> request
                         .antMatchers("/public/**","/assets/**","/vendors/**","/").permitAll()
+                        .antMatchers("/admin/**").hasRole("admin")
+                        .antMatchers("/user/**").hasRole("user")
                         .anyRequest().authenticated()
                 )
-                .formLogin(login -> login
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/", true)
-                        .permitAll()
+                .formLogin(login -> {
+                            try {
+                                login
+                                        .loginPage("/login")
+                                        .defaultSuccessUrl("/", true)
+                                        .permitAll()
+                                        .and()
+                                        .exceptionHandling().accessDeniedPage("/403error");
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                 )
+
                 .logout(withDefaults()).logout().logoutSuccessUrl("/");
 
         return http.build();
