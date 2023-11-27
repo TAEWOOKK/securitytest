@@ -15,8 +15,8 @@ public class HomeController {
     private final MemberService memberService;
 
     @RequestMapping("/")
-    public String idnex(){
-        return "/public/index";
+    public String index(){
+        return "/public/home";
     }
 
     @RequestMapping("/home")

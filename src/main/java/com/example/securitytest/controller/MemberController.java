@@ -16,7 +16,7 @@ public class MemberController {
     public String signupF(){
         return "/public/signup";
     }
-    @PostMapping("/signup")
+    @PostMapping("/public/signup")
     public String signupP(member member){
 
         memberService.signup(member);
