@@ -15,13 +15,19 @@ public class HomeController {
     private final MemberService memberService;
 
     @RequestMapping("/")
-    public String index(){
+    public String intial(){
+
         return "/public/home";
     }
 
     @RequestMapping("/home")
     public String home(){
         return "/public/home";
+    }
+
+    @RequestMapping("/index")
+    public String index(){
+        return "/public/index";
     }
 
     @GetMapping("/hello")
@@ -36,9 +42,4 @@ public class HomeController {
         return "/admin/admintest";
     }
 
-    @GetMapping("/403error")
-    public String error403(){
-
-        return "/403error";
-    }
 }

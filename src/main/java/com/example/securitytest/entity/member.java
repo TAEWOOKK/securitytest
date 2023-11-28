@@ -19,6 +19,7 @@ public class member implements UserDetails {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pk_id;
 
+    @Column(unique = true)
     private String memberId;
 
     private String password;
