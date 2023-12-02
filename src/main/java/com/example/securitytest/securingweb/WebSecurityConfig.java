@@ -29,16 +29,15 @@ public class WebSecurityConfig {
         http.csrf().disable()
                 .cors().disable()
                 .authorizeHttpRequests(request -> request
-                        .antMatchers("/public/**","/assets/**","/vendors/**","/").permitAll()
+                        .antMatchers("/public/**","/assets/**","/vendors/**","/","/403error","/error").permitAll()
                         .antMatchers("/admin/**").hasRole("admin")
                         .antMatchers("/user/**").hasRole("user")
-                        .anyRequest().authenticated()
                 )
                 .formLogin(login -> {
                             try {
                                 login
                                         .loginPage("/login")
-                                        .defaultSuccessUrl("/", true)
+                                        .defaultSuccessUrl("/index", true)
                                         .permitAll()
                                         .and()
                                         .exceptionHandling().accessDeniedPage("/403error");
