@@ -31,11 +31,6 @@ public class MemberService implements UserDetailsService {
         return memberRepository.findByMemberId(memberId);
     }
 
-/*    @Override
-    public member loadUserByUsername(String member_id) throws UsernameNotFoundException {
-
-        return memberRepository.findByMemberId(member_id).orElse(null);
-    }*/
 
     @Override
     public UserDetails loadUserByUsername(String memberId) throws UsernameNotFoundException {

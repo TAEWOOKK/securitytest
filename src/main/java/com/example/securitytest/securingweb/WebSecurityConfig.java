@@ -29,7 +29,7 @@ public class WebSecurityConfig {
         http.csrf().disable()
                 .cors().disable()
                 .authorizeHttpRequests(request -> request
-                        .antMatchers("/public/**","/assets/**","/vendors/**","/","/403error","/error").permitAll()
+                        .antMatchers("/assets/**","/vendors/**","/","/403error","/error").permitAll()
                         .antMatchers("/admin/**").hasRole("admin")
                         .antMatchers("/user/**").hasRole("user")
                 )

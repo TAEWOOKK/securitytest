@@ -13,6 +13,7 @@ spring:
 #      name: user
 #      password: 1234
 
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #    각자 PC에 만들어놓은 Database이름을 써야 합니다.

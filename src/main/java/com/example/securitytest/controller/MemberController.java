@@ -6,31 +6,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.security.Principal;
 
 @Controller
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
-    @GetMapping("/public/signup")
-    public String signupF(){
-        return "/public/signup";
-    }
-    @PostMapping("/public/signup")
-    public String signupP(member member){
 
-        memberService.signup(member);
+    @GetMapping("/hello")
+    public String hello(Principal principal){
 
-        return "/public/login";
+        System.out.println(principal);
+        return "/user/hello";
     }
-    @GetMapping("/login")
-    public String login(){
-        return "/public/login";
-    }
-
-    @GetMapping("/oldlogin")
-    public String oldlogin(){
-        return "/public/oldlogin";
-    }
-
 }
